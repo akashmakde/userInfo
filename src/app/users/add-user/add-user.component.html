@@ -1,0 +1,76 @@
+<section class="content" style="height: 60%;">
+    <div [formGroup]="addUserForm" class="container px-4 py-4 bg-white">
+        <h2>Add User</h2>
+      
+        <div class="row">
+          <div class="my-3 col">
+            <p for="exampleFormControlInput1" class="form-Label">First Name</p>
+            <input
+              type="text"
+              class="form-control"
+              id="siteName"
+              formControlName="firstName"
+              [class.is-invalid]="
+              addUserForm.get('firstName').hasError('required') &&
+              addUserForm.get('firstName').touched
+            "
+            />
+            <span
+            class="text-danger"
+            *ngIf="
+            addUserForm.get('firstName').hasError('required') &&
+            addUserForm.get('firstName').touched
+            "
+            >First Name is Required</span
+          >
+          </div>
+          <div class="my-3 col">
+            <p for="exampleFormControlInput1" class="form-Label">Last Name</p>
+            <input
+              type="text"
+              class="form-control"
+              id="siteName"
+              formControlName="lastName"
+              [class.is-invalid]="
+              addUserForm.get('lastName').hasError('required') &&
+              addUserForm.get('lastName').touched
+            "
+            />
+            <span
+            class="text-danger"
+            *ngIf="
+            addUserForm.get('lastName').hasError('required') &&
+              addUserForm.get('lastName').touched
+            "
+            >Last Name is Required</span
+          >
+          </div>
+        </div>
+        <div class="row">
+          <div class="my-3 col">
+            <p for="exampleFormControlInput1" class="form-Label">Date of Birth</p>
+            <input
+              type="date"
+              class="form-control"
+              id="siteName"
+              formControlName="dob"
+            />
+          </div>
+          <div class="my-3 col">
+            <p for="exampleFormControlInput1" class="form-Label">Gender</p>
+            <select class="form-select form-control" aria-label="Default select example" formControlName="gender">
+                <option  value = "" selected hidden>select</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Not Specified">Not Specified</option>
+              </select>
+          </div>
+        </div> 
+      
+      <div >
+        <button (click)="onSubmit()" class="btn btn-primary" [disabled]="addUserForm.invalid">
+          Submit
+        </button>
+      </div>
+     </div>
+    </section>
